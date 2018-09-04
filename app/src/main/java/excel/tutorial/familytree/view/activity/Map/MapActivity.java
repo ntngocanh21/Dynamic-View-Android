@@ -1,6 +1,9 @@
 package excel.tutorial.familytree.view.activity.Map;
 
+import android.annotation.SuppressLint;
 import android.graphics.Color;
+import android.view.MotionEvent;
+import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -52,5 +55,39 @@ public class MapActivity extends BaseActivity implements MapView {
                 mainView.addView(drawView);
             }
         });*/
+
+        final ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(this, new OnPinchListener());
+        mZoomableRelativeLayout.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                scaleGestureDetector.onTouchEvent(event);
+                return true;
+            }
+        });
+    }
+
+    private class OnPinchListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
+
+        float startingSpan;
+        float startFocusX;
+        float startFocusY;
+
+
+        public boolean onScaleBegin(ScaleGestureDetector detector) {
+            startingSpan = detector.getCurrentSpan();
+            startFocusX = detector.getFocusX();
+            startFocusY = detector.getFocusY();
+            return true;
+        }
+
+
+        public boolean onScale(ScaleGestureDetector detector) {
+            mZoomableRelativeLayout.scale(detector.getCurrentSpan()/startingSpan, startFocusX, startFocusY);
+            return true;
+        }
+
+        public void onScaleEnd(ScaleGestureDetector detector) {
+            mZoomableRelativeLayout.restore();
+        }
     }
 }
