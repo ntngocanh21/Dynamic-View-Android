@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<excel.tutorial.familytree.custom.ZoomableRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/zoomLayout"
+    tools:context="excel.tutorial.familytree.view.activity.Map.MapActivity">
+
+    <!--<RelativeLayout
+        android:id="@+id/mainView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/white">
+
+    </RelativeLayout>-->
+
+    <ImageView
+        android:id="@+id/imv1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:src="@drawable/wntvtefkevm" />
+
+    <ImageView
+        android:id="@+id/imv2"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginStart="20dp"
+        android:src="@drawable/portraitcircle" />
+
+</excel.tutorial.familytree.custom.ZoomableRelativeLayout>
