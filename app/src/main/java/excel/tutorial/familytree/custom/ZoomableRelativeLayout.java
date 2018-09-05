@@ -1,15 +1,15 @@
 package excel.tutorial.familytree.custom;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
 import android.graphics.Canvas;
 import android.util.AttributeSet;
 import android.widget.RelativeLayout;
 
 public class ZoomableRelativeLayout extends RelativeLayout {
-    float mScaleFactor = 1;
-    float mPivotX;
-    float mPivotY;
+
+    private float mScaleFactor = 1;
+    private float mPivotX;
+    private float mPivotY;
 
     public ZoomableRelativeLayout(Context context) {
         super(context);
@@ -23,9 +23,9 @@ public class ZoomableRelativeLayout extends RelativeLayout {
         super(context, attrs, defStyle);
     }
 
-    @SuppressLint("WrongConstant")
+    @Override
     protected void dispatchDraw(Canvas canvas) {
-        canvas.save(Canvas.MATRIX_SAVE_FLAG);
+        canvas.save(Canvas.ALL_SAVE_FLAG);
         canvas.scale(mScaleFactor, mScaleFactor, mPivotX, mPivotY);
         super.dispatchDraw(canvas);
         canvas.restore();

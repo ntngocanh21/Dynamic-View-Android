@@ -1,12 +1,10 @@
 package excel.tutorial.familytree.view.activity.Map;
 
-import android.annotation.SuppressLint;
-import android.graphics.Color;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.ScaleGestureDetector;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
 import butterknife.BindView;
 import excel.tutorial.familytree.R;
@@ -59,8 +57,8 @@ public class MapActivity extends BaseActivity implements MapView {
         final ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(this, new OnPinchListener());
         mZoomableRelativeLayout.setOnTouchListener(new View.OnTouchListener() {
             @Override
-            public boolean onTouch(View v, MotionEvent event) {
-                scaleGestureDetector.onTouchEvent(event);
+            public boolean onTouch(View v, MotionEvent motionEvent) {
+                scaleGestureDetector.onTouchEvent(motionEvent);
                 return true;
             }
         });
@@ -87,7 +85,10 @@ public class MapActivity extends BaseActivity implements MapView {
         }
 
         public void onScaleEnd(ScaleGestureDetector detector) {
-            mZoomableRelativeLayout.restore();
+            Log.i("TAG", "Scale: "+detector.getScaleFactor());
+            if (detector.getScaleFactor() < 1) {
+                mZoomableRelativeLayout.restore();
+            }
         }
     }
 }
