@@ -18,16 +18,16 @@
         android:id="@+id/imv1"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
         android:src="@drawable/wntvtefkevm" />
 
     <ImageView
         android:id="@+id/imv2"
         android:layout_width="50dp"
         android:layout_height="50dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginStart="20dp"
+        android:layout_below="@+id/imv1"
+        android:layout_marginTop="32dp"
+        android:layout_marginStart="56dp"
         android:src="@drawable/portraitcircle" />
 
 </excel.tutorial.familytree.custom.ZoomableRelativeLayout>

@@ -47,6 +47,4 @@ public class MapActivity extends BaseActivity implements MapView {
             }
         });*/
     }
-
-
 }
