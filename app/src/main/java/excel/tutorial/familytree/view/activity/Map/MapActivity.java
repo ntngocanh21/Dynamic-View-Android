@@ -1,9 +1,5 @@
 package excel.tutorial.familytree.view.activity.Map;
 
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.ScaleGestureDetector;
-import android.view.View;
 import android.widget.ImageView;
 
 import butterknife.BindView;
@@ -32,10 +28,7 @@ public class MapActivity extends BaseActivity implements MapView {
 
     @Override
     public void distributedDaggerComponents() {
-        Application.getInstance()
-                .getAppComponent()
-                .plus(new MapModule(this, this))
-                .inject(this);
+        Application.getInstance().getAppComponent().plus(new MapModule(this, this)).inject(this);
     }
 
     @Override
@@ -53,42 +46,7 @@ public class MapActivity extends BaseActivity implements MapView {
                 mainView.addView(drawView);
             }
         });*/
-
-        final ScaleGestureDetector scaleGestureDetector = new ScaleGestureDetector(this, new OnPinchListener());
-        mZoomableRelativeLayout.setOnTouchListener(new View.OnTouchListener() {
-            @Override
-            public boolean onTouch(View v, MotionEvent motionEvent) {
-                scaleGestureDetector.onTouchEvent(motionEvent);
-                return true;
-            }
-        });
     }
 
-    private class OnPinchListener extends ScaleGestureDetector.SimpleOnScaleGestureListener {
 
-        float startingSpan;
-        float startFocusX;
-        float startFocusY;
-
-
-        public boolean onScaleBegin(ScaleGestureDetector detector) {
-            startingSpan = detector.getCurrentSpan();
-            startFocusX = detector.getFocusX();
-            startFocusY = detector.getFocusY();
-            return true;
-        }
-
-
-        public boolean onScale(ScaleGestureDetector detector) {
-            mZoomableRelativeLayout.scale(detector.getCurrentSpan()/startingSpan, startFocusX, startFocusY);
-            return true;
-        }
-
-        public void onScaleEnd(ScaleGestureDetector detector) {
-            Log.i("TAG", "Scale: "+detector.getScaleFactor());
-            if (detector.getScaleFactor() < 1) {
-                mZoomableRelativeLayout.restore();
-            }
-        }
-    }
 }
