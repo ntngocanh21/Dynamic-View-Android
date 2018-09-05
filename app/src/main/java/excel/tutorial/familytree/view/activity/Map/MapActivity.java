@@ -5,26 +5,25 @@ import android.widget.ImageView;
 import butterknife.BindView;
 import excel.tutorial.familytree.R;
 import excel.tutorial.familytree.app.Application;
-import excel.tutorial.familytree.custom.DrawView;
-import excel.tutorial.familytree.custom.ZoomableRelativeLayout;
+import excel.tutorial.familytree.custom.ZoomView;
 import excel.tutorial.familytree.di.module.MapModule;
 import excel.tutorial.familytree.view.activity.BaseActivity;
 
 public class MapActivity extends BaseActivity implements MapView {
 
-    DrawView drawView;
+//    DrawView drawView;
 
-    @BindView(R.id.zoomLayout)
-    ZoomableRelativeLayout mZoomableRelativeLayout;
+//    @BindView(R.id.zoomLayout)
+    ZoomView mZoomableRelativeLayout;
 
     /*@BindView(R.id.mainView)
     RelativeLayout mainView;*/
 
-    @BindView(R.id.imv1)
-    ImageView imv1;
-
-    @BindView(R.id.imv2)
-    ImageView imv2;
+//    @BindView(R.id.imv1)
+//    ImageView imv1;
+//
+//    @BindView(R.id.imv2)
+//    ImageView imv2;
 
     @Override
     public void distributedDaggerComponents() {
@@ -38,6 +37,7 @@ public class MapActivity extends BaseActivity implements MapView {
 
     @Override
     protected void initViews() {
+        mZoomableRelativeLayout = this.findViewById(R.id.zoomLayout);
         /*mainView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
