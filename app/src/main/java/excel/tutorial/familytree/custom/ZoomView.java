@@ -21,7 +21,7 @@ public class ZoomView extends RelativeLayout {
     }
 
     float zoom = 1.0f;
-    float maxZoom = 5.0f;
+    float maxZoom = 3.0f;
     float smoothZoom = 1.0f;
     float zoomX, zoomY;
     float smoothZoomX, smoothZoomY;
@@ -263,12 +263,14 @@ public class ZoomView extends RelativeLayout {
         m.preTranslate(-clamp(0.5f * getWidth() / zoom, zoomX, getWidth() - 0.5f * getWidth() / zoom),
                 -clamp(0.5f * getHeight() / zoom, zoomY, getHeight() - 0.5f * getHeight() / zoom));
 
-        final View v = getChildAt(0);
-        m.preTranslate(v.getLeft(), v.getTop());
+
+        final View v1 = getChildAt(0);
+
+        m.preTranslate(v1.getLeft(), v1.getTop());
 
         if (animating && ch == null && isAnimationCacheEnabled()) {
-            v.setDrawingCacheEnabled(true);
-            ch = v.getDrawingCache();
+            v1.setDrawingCacheEnabled(true);
+            ch = v1.getDrawingCache();
         }
 
         if (animating && isAnimationCacheEnabled() && ch != null) {
@@ -278,7 +280,28 @@ public class ZoomView extends RelativeLayout {
             ch = null;
             canvas.save();
             canvas.concat(m);
-            v.draw(canvas);
+            v1.draw(canvas);
+            canvas.restore();
+        }
+
+
+        final View v2 = getChildAt(1);
+
+        m.preTranslate(v2.getLeft(), v2.getTop());
+
+        if (animating && ch == null && isAnimationCacheEnabled()) {
+            v2.setDrawingCacheEnabled(true);
+            ch = v2.getDrawingCache();
+        }
+
+        if (animating && isAnimationCacheEnabled() && ch != null) {
+            p.setColor(0xffffffff);
+            canvas.drawBitmap(ch, m, p);
+        } else {
+            ch = null;
+            canvas.save();
+            canvas.concat(m);
+            v2.draw(canvas);
             canvas.restore();
         }
 
