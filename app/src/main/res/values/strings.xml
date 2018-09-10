@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">FamilyTree</string>
     <string name="dummy">""</string>
+    <string name="scroll_aware_fab_behavior">excel.tutorial.familytree.custom.ScrollAwareFABBehavior</string>
+    <string name="new_node">New Node</string>
+    <string name="btn_new_node">Done</string>
+    <string name="enter_data">Please enter your name of node</string>
 </resources>

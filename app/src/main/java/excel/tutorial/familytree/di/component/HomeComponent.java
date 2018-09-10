@@ -1,6 +1,7 @@
 package excel.tutorial.familytree.di.component;
 
 import dagger.Subcomponent;
+import excel.tutorial.familytree.di.module.DialogModule;
 import excel.tutorial.familytree.di.module.HomeModule;
 import excel.tutorial.familytree.di.scope.ActivityScope;
 import excel.tutorial.familytree.view.activity.Home.HomeActivity;
@@ -16,7 +17,8 @@ import excel.tutorial.familytree.view.activity.Home.HomeActivity;
 @Subcomponent(
 
         modules = {
-                HomeModule.class
+                HomeModule.class,
+                DialogModule.class
         }
 )
 public interface HomeComponent {

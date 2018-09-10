@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="colorPrimaryDark">@android:color/black</color>
+    <color name="colorPrimary">@android:color/black</color>
+    <color name="fabColor">#FF5252</color>
+    <color name="hint_text">#817b7b</color>
 </resources>

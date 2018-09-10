@@ -3,29 +3,4 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical">
-
-    <EditText
-        android:id="@+id/edtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Please Enter Name"
-        android:inputType="textPersonName" />
-
-    <EditText
-        android:id="@+id/edtNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:ems="10"
-        android:hint="Please enter node"
-        android:inputType="textPersonName" />
-
-    <Button
-        android:id="@+id/btnProcess"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textAllCaps="false"
-        android:text="Initialize"/>
 </LinearLayout>

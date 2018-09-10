@@ -1,6 +1,8 @@
 package excel.tutorial.familytree.di.module;
 
 import dagger.Module;
+import dagger.Provides;
+import excel.tutorial.familytree.di.scope.ActivityScope;
 import excel.tutorial.familytree.view.activity.Map.MapActivity;
 import excel.tutorial.familytree.view.activity.Map.MapView;
 
@@ -20,5 +22,11 @@ public class MapModule {
     public MapModule(MapActivity activity, MapView view) {
         mActivity = activity;
         mView = view;
+    }
+
+    @Provides
+    @ActivityScope
+    MapActivity provideMapActivity() {
+        return mActivity;
     }
 }
