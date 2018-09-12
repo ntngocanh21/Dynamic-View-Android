@@ -9,46 +9,17 @@
 
     <excel.tutorial.familytree.custom.ZoomLinearLayout
         android:id="@+id/zoomLayout"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <RelativeLayout
-            android:id="@+id/mainView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-            <ImageView
-                android:id="@+id/imv1"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/wntvtefkevm" />
-
-            <ImageView
-                android:id="@+id/imv2"
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:layout_below="@+id/imv1"
-                android:layout_marginStart="40dp"
-                android:layout_marginTop="32dp"
-                android:src="@drawable/portraitcircle" />
-
-        </RelativeLayout>
-
-    </excel.tutorial.familytree.custom.ZoomLinearLayout>
-
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fabNode"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:src="@drawable/ic_recipe"
-        app:backgroundTint="@color/fabColor"
-        app:fabSize="normal"
-        app:layout_anchor="@id/zoomLayout"
-        app:layout_anchorGravity="bottom|center|end"
-        app:layout_behavior="@string/scroll_aware_fab_behavior" />
+        android:orientation="vertical">
+
+            <de.blox.graphview.GraphView
+                android:id="@+id/graph"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </de.blox.graphview.GraphView>
+
+    </excel.tutorial.familytree.custom.ZoomLinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>
 
